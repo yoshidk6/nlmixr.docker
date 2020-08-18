@@ -52,7 +52,8 @@ res_distrib(xpdb)
 library(shinyMixR)
 
 # the package requires a specific folder structure
-#create_proj()
+setwd("~/docs") # Needed to run example with docker
+create_proj()
 
 # models are present as external files and can be submitted outside current R session
 run_nmx("run1")
