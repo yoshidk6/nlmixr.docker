@@ -42,7 +42,7 @@ Once the docker container is running, you can go to a browser and go to the foll
 
 This will fire up an Rstudio server version. If everything went correctly you will see a login screen for Rstudio. You can login with username **rstudio** and password **nlmixr**. If a local folder was mounted you should be able to find this directly in the files pane in Rstudio.
 
-### From Github
+### From Github (Optional)
 
 To build a file on your local system, the following method was proposed by Bill Denney:
 
@@ -100,3 +100,11 @@ On windows it can take some more effort to mount local drives. The following met
 You now have access to other directories in /home/rstudio in addition to examples and kitematic (i.e. analysis, data, models, scripts, ShinyMixR).
 
 If you are using Docker Toolbox on Windows 7, the Docker Machine IP instead of localhost should be used. For example, http://192.168.99.100:8787/. To find the IP address, the `ipconfig` command can be used. In windows it might be necessary to stop the container using powershell, otherwise the container can be stopped using task manager.
+
+## Changes from the original repository
+ 
+ Compared to <https://github.com/RichardHooijmaijers/nlmixr.docker>, the following changes were made:
+ 
+ - Use `rocker/tidyverse:3.6.3` as base image
+ - Install Python using `reticulate::install_miniconda()`
+ - and other minor changes
