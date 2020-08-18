@@ -54,17 +54,6 @@ docker build . -t nlmixr
 
 Once the docker is build, it can be started as indicated in the previous section.
 
-## Test the installation
-
-It is possible to test if all packages are running correctly by downloading and running the test script:
-
-```{r eval=FALSE}
-# install.packages("RCurl")
-library(RCurl)
-url <- "https://raw.githubusercontent.com/nlmixrdevelopment/nlmixr/master/build/test_install.R"
-script <- getURL(url)
-eval(parse(text = script))
-```
 
 ## Stop the container
 
