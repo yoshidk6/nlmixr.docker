@@ -20,17 +20,17 @@ To run a docker image, a terminal window (or command prompt in windows) should b
 
 ### From dockerhub
 
-The docker files are available on [dockerhub](https://hub.docker.com/). it is possible to directly run the image from here.
-Take into account that the first time doing this, it will donwload all applicable files from the repository. This can take some time depending on your internet speed. After the first time, the container will be saved locally and it the machine will start almost immediately.
+The easiest method is to directly run the docker files from dockerhub <https://hub.docker.com/r/yoshidk6/nlmixr>. 
+Take into account that the first time doing this, it will donwload all applicable files from the repository. This can take some time depending on your internet speed. After the first time, the image will be saved locally and it the machine will start almost immediately.
 The following command can be issued to run the container:
 
 ```bash
-docker run -v /Users/richard/Documents/:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixrdev:V0.2
+docker run -v /Users/USERNAME/Documents/nlmixr_test:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr yoshidk6/nlmixr
 ```
 
 Some explanation for the command:
 
-- The `-v` option is used to mount a volume to the docker container. Although it is not not mandatory, it is highly recommended to easily run and save nlmixr models. In this example the the folder "Users/richard/Document" will be mounted to the docs folder in the home directory. Multiple folders can be mounted, as long as they are accessible on the host computer
+- The `-v` option is used to mount a volume to the docker container. Although it is not not mandatory, it is highly recommended to easily run and save nlmixr models. In this example the the folder "Users/richard/Document/nlmixr_test" will be mounted to the docs folder in the home directory. Multiple folders can be mounted, as long as they are accessible on the host computer
 - the `-d` option will run the container in detached mode
 - the `-p` option will publish a container's port (or a range of ports) to the host
 - the `-e` option will set environment variables. For the Rstudio docker which is being used on the background a password should be given.
@@ -47,7 +47,7 @@ This will fire up an Rstudio server version. If everything went correctly you wi
 To build a file on your local system, the following method was proposed by Bill Denney:
 
 ```bash
-git clone https://github.com/RichardHooijmaijers/nlmixr.docker.git
+git clone https://github.com/yoshidk6/nlmixr.docker.git
 cd nlmixr.docker/prod
 docker build . -t nlmixr
 ```
@@ -64,6 +64,8 @@ Once you are done, or you would want to start another instance of the container,
 Each time you stop the container or restart/log-off, the container should be started again using the `docker run` command as stated above.
 In case you want to stop a specific container, you can list the running containers with `docker container ls` and close the specific container ID (e.g. `docker container stop 1fa4ab2cf395`)
 
+You can also execute these actions with GUI from "Dashboard", which you can find by clicking the Docker icon in the task bar (right-click for Windows)
+
 ## Known issues
 
 - In certain cases `localhost` is not recognized and the url should be `127.0.0.1:8787`
@@ -77,7 +79,7 @@ On windows it can take some more effort to mount local drives. The following met
 - Enter the drive letter and a colon e.g. C: before the path to the local directories. The trailing path separator is optional. It works with or without the "/".
 - Including the /home/rstudio/docs path is essential in order to have access to the local directories (in /home/rstudio/docs).
 
-`docker run -v C:/Users/nholf/Documents:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixrdev:V0.1`
+`docker run -v C:/Users/USERNAME/Documents/nlmixr_test:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixrdev:V0.1`
 
 You now have access to other directories in /home/rstudio in addition to examples and kitematic (i.e. analysis, data, models, scripts, ShinyMixR).
 
