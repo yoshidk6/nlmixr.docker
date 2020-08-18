@@ -48,15 +48,8 @@ To build a file on your local system, the following method was proposed by Bill 
 
 ```bash
 git clone https://github.com/RichardHooijmaijers/nlmixr.docker.git
-cd nlmixr.docker/dev
-docker build . -t nlmixrdev
-```
-It is also possible to build directly from GitHub, using:
-
-```bash
-docker build \
-  https://github.com/RichardHooijmaijers/nlmixr.docker.git \
-  -t nlmixrdev
+cd nlmixr.docker/prod
+docker build . -t nlmixr
 ```
 
 Once the docker is build, it can be started as indicated in the previous section.
