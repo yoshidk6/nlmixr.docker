@@ -41,5 +41,6 @@ ind_plots(xpdb, nrow=3, ncol=4)
 res_distrib(xpdb)
 
 # Step 4: run shinymixR (make sure you allow pop-ups in the browser!)
+setwd("~/docs") # Needed to run example with docker
 create_proj()
 run_shinymixr(launch.browser=TRUE)

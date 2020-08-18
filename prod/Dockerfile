@@ -17,7 +17,7 @@ RUN sudo -u rstudio Rscript -e "reticulate::install_miniconda()"
 RUN sudo -u rstudio Rscript -e "reticulate::conda_install('r-reticulate', 'sympy')"
 
 RUN Rscript -e "devtools::install_github('nlmixrdevelopment/xpose.nlmixr')"
-RUN Rscript -e "devtools::install_github('richardhooijmaijers/shinyMixR')"
+RUN Rscript -e "devtools::install_github('yoshidk6/shinyMixR', ref = 'fix-folder-name')"
 
 
 # Copy files
